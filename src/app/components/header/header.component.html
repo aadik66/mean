@@ -1,0 +1,21 @@
+<nav class="w-full flex justify-between items-center p-2 bg-indigo-500 shadow-lg">
+<div class="logo">
+    <span class="text-gray-200 text-4xl flex text-center justify-items-center">MeanStack</span>
+</div>
+<div *ngIf="isLoggedIn" class="search relative">
+    <span class=" absolute mt-1 mx-1"><i class="fa fa-search font-light"></i></span>
+    <input class="p-1 w-60 pl-6 rounded rounded-r-none text-gray-800" type="text" placeholder="Search Author">
+    <button class="bg-slate-400 text-white rounded-r p-1">Search</button>
+</div>
+<div class="nav-items">
+    <ng-container *ngIf="!isLoggedIn">
+        <span routerLink="/register" class="text-xl cursor-pointer text-gray-200 font-bold m-1.5 hover:underline hover:text-indigo-200">Register</span>
+    <span routerLink="/login" class="text-xl cursor-pointer text-gray-200 font-bold m-1.5 hover:underline hover:text-indigo-200">Login</span>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn">
+        <span routerLink="/user-edit" class="text-xl cursor-pointer text-gray-200 font-bold m-1.5 hover:underline hover:text-indigo-200">Cart</span>
+    <span routerLink="/home" class="text-xl cursor-pointer text-gray-200 font-bold m-1.5 hover:underline hover:text-indigo-200">WelcomeUser</span>
+    <span routerLink="/login" (click)="logout()" class="text-xl cursor-pointer text-gray-200 font-bold m-1.5 hover:underline hover:text-indigo-200">Logout</span>
+    </ng-container> 
+</div>
+</nav>
